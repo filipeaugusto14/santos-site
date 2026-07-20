@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contato — Santos Assessoria</title>
+<meta name="description" content="Fale com a Santos Assessoria. Descreva sua situação ou envie a notificação e nossa equipe faz a identificação inicial e orienta os próximos passos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a class="nav__logo" href="index.html"><img src="assets/img/logo.png" alt="Santos Assessoria"></a>
+      <ul class="nav__links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="areas-de-atuacao.html">Áreas de atuação</a></li>
+        <li><a href="santos-alerta.html">Santos Alerta</a></li>
+        <li><a href="sobre-a-santos.html">Sobre a Santos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a class="btn btn--wa" href="https://wa.me/5531985283733?text=Gostaria%20de%20saber%20como%20agir%20em%20rela%C3%A7%C3%A3o%20a%20uma%20notifica%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <button class="nav__toggle" aria-label="Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding:64px 0 66px">
+  <div class="container">
+    <div class="mw720">
+      <span class="eyebrow">/ Primeiro contato</span>
+      <h1>Recebeu uma notificação? Vamos entender o próximo passo.</h1>
+      <p class="lead">Fale diretamente com nossa equipe pelo WhatsApp e receba uma orientação inicial sobre sua situação.</p>
+      <div class="hero__actions">
+        <a class="btn btn--wa btn--lg" href="https://wa.me/5531985283733?text=Gostaria%20de%20saber%20como%20agir%20em%20rela%C3%A7%C3%A3o%20a%20uma%20notifica%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2" style="gap:48px;align-items:start">
+      <div>
+        <span class="eyebrow">— Registro formal</span>
+        <h2>Descreva sua situação.</h2>
+        <p class="lead">Você não precisa saber qual é a infração nem qual procedimento se aplica. Descreva a situação, coloque os dados ou envie a notificação que nossa equipe faz a identificação inicial.</p>
+        <p>Cada situação recebe análise individual antes de qualquer orientação.</p>
+        <div class="card" style="margin-top:26px;box-shadow:none">
+          <ul style="list-style:none;padding:0;margin:0;line-height:2">
+            <li>📞 <a href="https://wa.me/5531985283733" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600">WhatsApp: (31) 98528-3733</a></li>
+            <li>✉️ <a href="mailto:atendimento@santosassessoria.com" style="color:var(--navy);font-weight:600">atendimento@santosassessoria.com</a></li>
+            <li>🕗 Segunda à Sexta, 8h às 18h</li>
+            <li>📍 Rua dos Guajajaras, 910 — Sala 1407, Lourdes · Belo Horizonte/MG</li>
+          </ul>
+        </div>
+      </div>
+      <form class="form" id="form-contato" method="post" action="enviar.php">
+        <label for="f-nome">Nome completo *</label>
+        <input id="f-nome" name="nome" type="text" required autocomplete="name">
+        <label for="f-doc">CPF/CNPJ *</label>
+        <input id="f-doc" name="documento" type="text" required inputmode="numeric">
+        <label for="f-email">E-mail *</label>
+        <input id="f-email" name="email" type="email" required autocomplete="email">
+        <label for="f-wa">WhatsApp</label>
+        <input id="f-wa" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel">
+        <label for="f-msg">Descreva a situação *</label>
+        <textarea id="f-msg" name="mensagem" required placeholder="Conte o que aconteceu, ou cole os dados da notificação."></textarea>
+        <!-- anti-spam simples (campo escondido; bots preenchem) -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <button type="submit" class="btn btn--navy btn--lg">Solicitar análise</button>
+        <div class="form__msg" id="form-msg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/img/logo.png" alt="Santos Assessoria">
+        <p><b style="color:#fff">Autuação recebida. Próximo passo claro.</b><br>Especialistas em autuações e processos administrativos.</p>
+        <a href="https://www.instagram.com/santoscesp/" target="_blank" rel="noopener" style="color:var(--gold-soft);font-weight:600;font-size:.9rem">Instagram @santoscesp</a>
+      </div>
+      <div class="footer__col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="areas-de-atuacao.html">Áreas de atuação</a></li>
+          <li><a href="santos-alerta.html">Santos Alerta</a></li>
+          <li><a href="sobre-a-santos.html">Sobre a Santos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Fale agora</h4>
+        <ul>
+          <li><a href="https://wa.me/5531985283733" target="_blank" rel="noopener">WhatsApp: (31) 98528-3733</a></li>
+          <li><a href="mailto:atendimento@santosassessoria.com">atendimento@santosassessoria.com</a></li>
+          <li><span>Funcionamento: Segunda à Sexta, 8h às 18h</span></li>
+          <li><span>Rua dos Guajajaras, 910 — Sala 1407, Lourdes</span></li>
+          <li><span>Belo Horizonte • MG</span></li>
+          <li><span>Atendimento online e presencial com agendamento</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      © 2026 <b>SANTOS ASSESSORIA</b>. Todos os direitos reservados. · Especialistas em autuações e processos administrativos.<br>
+      RAFAEL TADEU DOS SANTOS &amp; CIA LTDA · CNPJ 67.219.034/0001-42
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

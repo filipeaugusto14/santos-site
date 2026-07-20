@@ -1,0 +1,27 @@
+# Santos Assessoria — configuração Apache (Hostinger)
+
+# 1) HTTPS + www→raiz (ajuste conforme preferir na hora de conectar o domínio)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2) URLs limpas: /areas-de-atuacao serve areas-de-atuacao.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^.]+)$ $1.html [L]
+
+# 3) remove .html da barra de endereço (redireciona /pagina.html -> /pagina)
+RewriteCond %{THE_REQUEST} \s/+([^.\s]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 4) página de erro
+ErrorDocument 404 /index.html
+
+# 5) cache dos estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
