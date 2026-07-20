@@ -134,6 +134,10 @@ img{max-width:100%;display:block}
 .plan__list li{padding:9px 0 9px 30px;position:relative;border-bottom:1px solid var(--line);color:#3f4750}
 .plan__list li:before{content:"✓";position:absolute;left:0;top:9px;color:var(--gold);font-weight:800}
 .plan .btn{width:100%;justify-content:center}
+/* botão "anual" (contorno) fica dentro de cartão BRANCO, mas dentro da seção navy —
+   forço navy pra não virar branco-no-branco (invisível). */
+.plan .btn--ghost{color:var(--navy);border-color:var(--navy);background:transparent}
+.plan .btn--ghost:hover{background:var(--navy);color:#fff}
 .plan__both{display:flex;gap:12px;margin-top:12px}
 .plan__both .btn{font-size:.9rem;padding:12px}
 
