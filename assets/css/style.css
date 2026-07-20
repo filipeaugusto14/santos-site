@@ -207,6 +207,24 @@ img{max-width:100%;display:block}
 .numrow h4{margin:0 0 3px}
 .numrow p{margin:0;color:#48505a}
 
+/* tabela comparativa de planos */
+.cmp-wrap{overflow-x:auto;max-width:1000px;margin:0 auto;border-radius:14px;box-shadow:var(--shadow);-webkit-overflow-scrolling:touch}
+.cmp{width:100%;border-collapse:collapse;min-width:680px;background:#fff}
+.cmp th,.cmp td{padding:15px 16px;text-align:center;border-bottom:1px solid var(--line);font-size:.95rem}
+.cmp thead th{background:var(--navy);color:#fff;font-family:"Space Grotesk",sans-serif;font-size:.78rem;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:700;border-bottom:0}
+.cmp thead th.pop{background:var(--gold)}
+.cmp thead th:first-child,.cmp tbody td:first-child{text-align:left}
+.cmp tbody td:first-child{color:var(--ink);font-weight:500;max-width:320px}
+.cmp td small{display:block;color:var(--muted);font-weight:400;font-size:.82rem;margin-top:2px}
+.cmp .yes{color:var(--gold);font-weight:800;font-size:1.05rem}
+.cmp .no{color:#c2c8d0}
+.cmp tbody tr:nth-child(even){background:#f7f9fc}
+.cmp .row-price td{font-weight:700;color:var(--navy);font-family:"Space Grotesk",sans-serif;font-size:1.02rem}
+.cmp .row-price.anual td{color:var(--gold-2);font-size:.95rem}
+.cmp .row-cta td{padding:18px 12px;border-bottom:0}
+.cmp .row-cta .btn{width:100%;justify-content:center;padding:11px;font-size:.9rem}
+
 /* ==========================================================================
    RESPONSIVO
    ========================================================================== */
