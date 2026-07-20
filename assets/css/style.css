@@ -183,6 +183,31 @@ img{max-width:100%;display:block}
 .footer__bottom b{color:#9fb0c2;font-weight:600}
 
 /* ==========================================================================
+   BLINDAGEM SANTOS — planos horizontais + listas numeradas
+   ========================================================================== */
+.bplans{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.bplan{display:flex;justify-content:space-between;align-items:center;gap:22px;
+  background:#16294a;border:1px solid rgba(255,255,255,.12);border-radius:16px;
+  padding:24px 30px;transition:transform .18s,box-shadow .18s;color:#fff}
+.bplan:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,.28)}
+.bplan--pop{background:var(--gold);border-color:var(--gold)}
+.bplan__name{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.35rem;margin:0 0 3px}
+.bplan__sub{margin:0;font-size:.98rem;color:#c3ccd8}
+.bplan--pop .bplan__sub{color:#fff9ec}
+.bplan__price{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.7rem;white-space:nowrap}
+.bplan__price small{font-size:.95rem;font-weight:500;opacity:.8}
+.bnote{text-align:center;color:#aeb9c7;font-size:.92rem;margin-top:24px}
+
+.numlist{display:flex;flex-direction:column;gap:22px}
+.numrow{display:flex;gap:16px;align-items:flex-start}
+.numbadge{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:"Space Grotesk",sans-serif;font-weight:700;color:#fff;flex-shrink:0;font-size:1.02rem}
+.numbadge--gold{background:var(--gold)}
+.numbadge--navy{background:var(--navy)}
+.numrow h4{margin:0 0 3px}
+.numrow p{margin:0;color:#48505a}
+
+/* ==========================================================================
    RESPONSIVO
    ========================================================================== */
 @media(max-width:900px){
@@ -197,6 +222,7 @@ img{max-width:100%;display:block}
   .nav.open .nav__links a{padding:10px 0}
   .section{padding:56px 0}
   .cta-band{padding:40px 24px}
+  .bplan{flex-direction:column;align-items:flex-start;gap:8px}
 }
 @media(max-width:560px){
   .stats{grid-template-columns:1fr}
