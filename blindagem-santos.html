@@ -97,9 +97,9 @@
           <tr class="row-price anual"><td>Valor mensal (pago anualmente)</td><td>R$ 269,10</td><td>R$ 494,10</td><td>R$ 899,10</td></tr>
           <tr class="row-cta">
             <td></td>
-            <td><a class="btn btn--navy" href="https://wa.me/5531985283733?text=Ola!%20Tenho%20interesse%20na%20Blindagem%20Santos%20-%20plano%20Essencial." target="_blank" rel="noopener">Assinar</a></td>
-            <td><a class="btn btn--navy" href="https://wa.me/5531985283733?text=Ola!%20Tenho%20interesse%20na%20Blindagem%20Santos%20-%20plano%20Profissional." target="_blank" rel="noopener">Assinar</a></td>
-            <td><a class="btn btn--gold" href="https://wa.me/5531985283733?text=Ola!%20Tenho%20interesse%20na%20Blindagem%20Santos%20-%20plano%20Premium." target="_blank" rel="noopener">Assinar</a></td>
+            <td><button type="button" class="btn btn--navy" onclick="abrirAssinatura('essencial')">Assinar</button></td>
+            <td><button type="button" class="btn btn--navy" onclick="abrirAssinatura('profissional')">Assinar</button></td>
+            <td><button type="button" class="btn btn--gold" onclick="abrirAssinatura('premium')">Assinar</button></td>
           </tr>
         </tbody>
       </table>
@@ -197,6 +197,66 @@
     </div>
   </div>
 </footer>
+
+<!-- MODAL DE ASSINATURA -->
+<div class="modal" id="assinModal" aria-hidden="true">
+  <div class="modal__box">
+    <button class="modal__x" onclick="fecharAssinatura()" aria-label="Fechar">&times;</button>
+    <h3 id="assinTitulo">Assinar Blindagem</h3>
+    <p class="dm">Preencha seus dados. O <b>CPF/CNPJ informado é o que será monitorado</b>. Em seguida escolha mensal ou anual para concluir o pagamento.</p>
+    <label for="asNome">Nome completo *</label>
+    <input id="asNome" type="text" autocomplete="name">
+    <label for="asDoc">CPF/CNPJ que deseja monitorar *</label>
+    <input id="asDoc" type="text" inputmode="numeric" autocomplete="off">
+    <label for="asTel">Telefone (WhatsApp) *</label>
+    <input id="asTel" type="tel" inputmode="numeric" autocomplete="tel">
+    <div class="assin__periodos">
+      <button type="button" class="btn btn--navy" onclick="assinar('mensal')">Assinar mensal</button>
+      <button type="button" class="btn btn--gold" onclick="assinar('anual')">Assinar anual <small>melhor preço</small></button>
+    </div>
+    <div class="form__msg" id="asMsg"></div>
+  </div>
+</div>
+
+<script>
+  var BLINDAGEM_PLANOS = {
+    essencial:    { nome:'Essencial',    mensal:'https://invoice.infinitepay.io/plans/rafael-tadeu-i7w/MllVQtxWji', anual:'https://invoice.infinitepay.io/plans/rafael-tadeu-i7w/cvmnBvcD17' },
+    profissional: { nome:'Profissional', mensal:'https://invoice.infinitepay.io/plans/rafael-tadeu-i7w/yqHiBryXkt', anual:'https://invoice.infinitepay.io/plans/rafael-tadeu-i7w/GBFUQkd30X' },
+    premium:      { nome:'Premium',      mensal:'https://invoice.infinitepay.io/plans/rafael-tadeu-i7w/EwnOoBGvpI', anual:'https://invoice.infinitepay.io/plans/rafael-tadeu-i7w/aN0VP11AAM' }
+  };
+  var planoAtual = null;
+  function abrirAssinatura(k){
+    planoAtual = k;
+    document.getElementById('assinTitulo').textContent = 'Assinar Blindagem ' + BLINDAGEM_PLANOS[k].nome;
+    var m = document.getElementById('asMsg'); m.textContent = ''; m.className = 'form__msg';
+    document.getElementById('assinModal').classList.add('open');
+    setTimeout(function(){ document.getElementById('asNome').focus(); }, 50);
+  }
+  function fecharAssinatura(){ document.getElementById('assinModal').classList.remove('open'); }
+  function assinar(periodo){
+    var nome = document.getElementById('asNome').value.trim();
+    var doc  = document.getElementById('asDoc').value.trim();
+    var tel  = document.getElementById('asTel').value.trim();
+    var msg  = document.getElementById('asMsg');
+    if(nome.length < 3 || doc.replace(/\D/g,'').length < 11 || tel.replace(/\D/g,'').length < 10){
+      msg.className = 'form__msg err';
+      msg.textContent = 'Preencha nome, CPF/CNPJ (a monitorar) e telefone com DDD.';
+      return;
+    }
+    var p = BLINDAGEM_PLANOS[planoAtual]; if(!p) return;
+    // captura os dados para a Santos saber qual CNPJ monitorar (não bloqueia o pagamento)
+    try {
+      var fd = new FormData();
+      fd.append('plano', p.nome); fd.append('periodo', periodo);
+      fd.append('nome', nome); fd.append('documento', doc); fd.append('telefone', tel);
+      navigator.sendBeacon('assinatura.php', fd);
+    } catch(e){}
+    msg.className = 'form__msg'; msg.textContent = 'Redirecionando para o pagamento…';
+    window.location.href = p[periodo];
+  }
+  document.getElementById('assinModal').addEventListener('click', function(e){ if(e.target === this) fecharAssinatura(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') fecharAssinatura(); });
+</script>
 
 <script src="assets/js/site.js"></script>
 </body>

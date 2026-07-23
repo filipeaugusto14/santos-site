@@ -226,6 +226,27 @@ img{max-width:100%;display:block}
 .cmp .row-cta .btn{width:100%;justify-content:center;padding:11px;font-size:.9rem}
 
 /* ==========================================================================
+   MODAL DE ASSINATURA (Blindagem)
+   ========================================================================== */
+.modal{position:fixed;inset:0;background:rgba(13,27,46,.55);display:none;align-items:center;
+  justify-content:center;z-index:100;padding:20px}
+.modal.open{display:flex}
+.modal__box{background:#fff;border-radius:16px;padding:30px 28px;max-width:440px;width:100%;
+  box-shadow:0 30px 70px rgba(0,0,0,.4);position:relative;max-height:92vh;overflow:auto}
+.modal__x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:28px;line-height:1;
+  color:var(--muted);cursor:pointer}
+.modal__box h3{margin:0 0 6px}
+.modal__box .dm{color:var(--muted);font-size:.92rem;margin:0 0 6px}
+.modal__box label{display:block;font-weight:600;font-size:.9rem;color:var(--navy);margin:14px 0 6px}
+.modal__box input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;
+  font-family:inherit;font-size:1rem;background:#fbfcfe;color:var(--ink)}
+.modal__box input:focus{outline:none;border-color:var(--gold)}
+.assin__periodos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.assin__periodos .btn{justify-content:center;flex-direction:column;gap:2px;padding:14px 10px;text-align:center}
+.assin__periodos .btn small{font-weight:500;font-size:.72rem;opacity:.9}
+@media(max-width:480px){.assin__periodos{grid-template-columns:1fr}}
+
+/* ==========================================================================
    RESPONSIVO
    ========================================================================== */
 @media(max-width:900px){
