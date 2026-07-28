@@ -5,6 +5,11 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# 1.5) Atalho do HUB do parceiro: santosassessoria.com/parceiro -> tela de login
+#      do Hub (Apps Script). 302 (temporário) de propósito: se o link do Hub mudar
+#      (nova implantação), basta atualizar a URL abaixo e o atalho segue valendo.
+RewriteRule ^parceiro/?$ https://script.google.com/macros/s/AKfycbxdNZXtUdpG38yGytdVRdeuKuyusysL27D3Yga5P9DdO1UmybKlx7Gj4q206d-VMMWcZA/exec?p=parceiro [R=302,L,QSD]
+
 # 2) URLs limpas: /areas-de-atuacao serve areas-de-atuacao.html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
